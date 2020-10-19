@@ -5,7 +5,11 @@
     <strong>Author: </strong><span>{{$page.posts.author}}</span>
     <br/>
     <strong>Date: </strong><span>{{$page.posts.created_at}}</span>
-    <VueRemarkContent />
+    <VueRemarkContent>
+        <template v-slot: ad>
+            <Ad/>
+        </template>
+    </VueRemarkContent>
 </div>
         
     
@@ -21,9 +25,13 @@ query Post($id: ID!){
 }
 </page-query>
 <script lang="ts">
-import Vue from 'vue'
-export default Vue.extend({
+import Ad from '../components/Ad.vue'
+
+export default{
     
-})
+  components:{
+      Ad,
+  }
+}
 </script>
 
